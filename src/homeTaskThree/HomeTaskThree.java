@@ -1,15 +1,17 @@
 package homeTaskThree;
 
-import java.sql.SQLOutput;
+
 
 public class HomeTaskThree {
     public static void main(String[] args) {
-      //oneOne();
-     //oneTwo(7);
-     //   twoOne();
-      //  twoTwo();
-        //  twoThree();
+      oneOne();
+      oneTwo(7);
+      oneThree(666);
+        twoOne();
+        twoTwo();
+        twoThree();
         three();
+
     }
     //Задание 1.1
     public static void oneOne(){
@@ -31,6 +33,20 @@ public class HomeTaskThree {
     }
 
     //Задание 1.3
+    public static void oneThree(int number){
+        String lenght=""+number;
+        int sum=1;
+       int massiv[]=new int[lenght.length()];
+       for (int i=0;i<massiv.length;i++){
+           massiv[i]=number%10;
+           number=number/10;
+           if(i!=0){
+           System.out.print("Умножаю:" +sum);
+           System.out.println(" и "+massiv[i]);}
+           sum=sum*massiv[i];
+       }
+        System.out.println("Произведение равно:  "+sum);
+    }
 
     //Задание 2.1
     public static void twoOne(){
@@ -69,7 +85,7 @@ public class HomeTaskThree {
             }
         }
     }
-
+  //Задание 2.3
     public static void twoThree(){
         Test [] array=new Test[10];
         int i=0;
@@ -102,9 +118,4 @@ public class HomeTaskThree {
            System.out.println(cars[i]);
        }
     }
-
-
-
-
-
 }
