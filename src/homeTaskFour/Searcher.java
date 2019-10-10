@@ -15,7 +15,7 @@ public class Searcher implements IRobot {
         //Ищем без учета регистра
         Pattern pattern1 = Pattern.compile("война",Pattern.CASE_INSENSITIVE);
         Matcher matcher1 = pattern1.matcher(warAndWorld);//
-        Pattern pattern2 = Pattern.compile(" и ",Pattern.CASE_INSENSITIVE);
+        Pattern pattern2 = Pattern.compile(" +и +",Pattern.CASE_INSENSITIVE);
         Matcher matcher2 = pattern2.matcher(warAndWorld);
         Pattern pattern3 = Pattern.compile("мир",Pattern.CASE_INSENSITIVE);
         Matcher matcher3 = pattern3.matcher(warAndWorld);

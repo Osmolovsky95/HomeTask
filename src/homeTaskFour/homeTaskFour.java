@@ -9,14 +9,14 @@ import java.util.regex.Pattern;
 
 public class homeTaskFour {
     public static void main(String[] args) throws Exception {
-          oneOne();
-          oneTwo();
-          oneThree();
-          oneFourV1("012312");
-          oneFourV2("012312");
-          oneFourV3("012312");
-          twoOne();
-          String link ="";
+         oneOne();
+         oneTwo();
+         oneThree();
+         oneFourV1("012312");
+         oneFourV2("012312");
+         oneFourV3("012312");
+         twoOne();
+         String link="";
      for (int i=0;i<args.length;i++){
          link=args[i];
      }
@@ -26,7 +26,7 @@ public class homeTaskFour {
                                            //China        Belarus          Russia
         String  phoneNumber=" вот мой+8615026861779 absf+3752944-520-00  +79587568549 +375(25)5277438 +375 25 527 74 38" +
                   "+375- 25- 527- 74 -38  ";
-          phoneNumbers(phoneNumber);
+        //  phoneNumbers(phoneNumber);
 
     }
 
