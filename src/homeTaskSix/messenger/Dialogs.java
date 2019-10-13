@@ -36,6 +36,12 @@ public class Dialogs {
         }
         else System.out.println("Нет доступа!");
     }
+
+           public void delayMessage(Message message,int min) {
+           long dateMessage=message.getDate().getTime();
+           message.getDate().setTime(dateMessage+60000*min);
+           addMessages(message);
+           }
 //    public Message[] getMessages() {
 //        return messages;
 //    }

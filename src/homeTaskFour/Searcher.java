@@ -13,8 +13,8 @@ public class Searcher implements IRobot {
         input.read(massiv);
         String warAndWorld = new String(massiv);
         //Ищем без учета регистра
-        Pattern pattern1 = Pattern.compile("война",Pattern.CASE_INSENSITIVE);
-        Matcher matcher1 = pattern1.matcher(warAndWorld);//
+        Pattern pattern1 = Pattern.compile("^[A-Za-z][^\\#\\!]{5,}");
+        Matcher matcher1 = pattern1.matcher("privet");//
         Pattern pattern2 = Pattern.compile(" +и +",Pattern.CASE_INSENSITIVE);
         Matcher matcher2 = pattern2.matcher(warAndWorld);
         Pattern pattern3 = Pattern.compile("мир",Pattern.CASE_INSENSITIVE);

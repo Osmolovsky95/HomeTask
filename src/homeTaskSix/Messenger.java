@@ -67,7 +67,8 @@ public class Messenger {
       }
         System.out.println("Какое сообщение в диалоге хотите отредактировать?");
       dialogs.editMessage(dialogs.getMessages()[Integer.parseInt(new Scanner(System.in).nextLine())]);
-
+        System.out.println(" Какое сообщение и На сколько минут хотите отложить?");
+        dialogs.delayMessage(dialogs.getMessages()[Integer.parseInt(new Scanner(System.in).nextLine())],Integer.parseInt(new Scanner(System.in).nextLine()));
 
 
 
