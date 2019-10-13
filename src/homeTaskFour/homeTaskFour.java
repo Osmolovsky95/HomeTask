@@ -9,13 +9,13 @@ import java.util.regex.Pattern;
 
 public class homeTaskFour {
     public static void main(String[] args) throws Exception {
-      //   oneOne();
-      //   oneTwo();
-       //  oneThree();
-       //  oneFourV1("012312");
-       //  oneFourV2("012312");
-        // oneFourV3("012312");
-        // twoOne();
+         oneOne();
+         oneTwo();
+         oneThree();
+         oneFourV1("012312");
+         oneFourV2("012312");
+         oneFourV3("012312");
+         twoOne();
          String link="";
      for (int i=0;i<args.length;i++){
          link=args[i];
