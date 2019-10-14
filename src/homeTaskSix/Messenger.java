@@ -1,11 +1,9 @@
 package homeTaskSix;
 
 import homeTaskSix.messenger.*;
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.Date;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Messenger {
 
@@ -67,16 +65,21 @@ public class Messenger {
       }
         System.out.println("Какое сообщение в диалоге хотите отредактировать?");
       dialogs.editMessage(dialogs.getMessages()[Integer.parseInt(new Scanner(System.in).nextLine())]);
-        System.out.println(" Какое сообщение и На сколько минут хотите отложить?");
-        dialogs.delayMessage(dialogs.getMessages()[Integer.parseInt(new Scanner(System.in).nextLine())],Integer.parseInt(new Scanner(System.in).nextLine()));
+      //  System.out.println(" Какое сообщение и На сколько минут хотите отложить?");
+       // dialogs.delayMessage(dialogs.getMessages()[Integer.parseInt(new Scanner(System.in).nextLine())],Integer.parseInt(new Scanner(System.in).nextLine()));
 
 
+        System.out.println("Какое сообщение хотите удалить?");
+        dialogs.deleteMessage(dialogs.getMessages(),new Scanner(System.in).nextInt());
 
-//        for (Message message:dialogs.getMessages()) {
-//            System.out.println(message);
-//            }
+        Message messageOne=new Message("Отложенное сообщение",user1,new Date());
+        dialogs.delayMessages(messageOne);
+
 
         dialogs.history(new ConsoleSaver(System.out));
         dialogs.history(new FileSaver(null));
+
+
+        dialogs.userHistory(user1);
     }
 }
