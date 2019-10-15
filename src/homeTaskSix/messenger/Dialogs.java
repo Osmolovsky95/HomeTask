@@ -61,6 +61,7 @@ public class Dialogs {
              this.delayMessages =Arrays.copyOf(this.delayMessages,this.delayMessages.length+messages.length);
             int messagesLength = messages.length;
             for (Message mes : messages) {
+                mes.getDate().setTime(mes.getDate().getTime()+120000);
                 this.delayMessages[this.delayMessages.length-messagesLength--]=mes;
             }
         }

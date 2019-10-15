@@ -1,7 +1,7 @@
 package homeTaskSix.messenger;
 
 import java.util.Date;
-import java.util.Scanner;
+
 
 public class Message {
 

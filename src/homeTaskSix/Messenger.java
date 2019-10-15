@@ -44,9 +44,6 @@ public class Messenger {
         dialogs.addUser(user1);
         dialogs.addUser(user2);
 
-
-    //    Message messageOne=new Message("Отложенное сообщение",user1,new Date());
-      //  dialogs.addDelayMessages(messageOne);
         System.out.println("Введите сообщение для начала переговоров,для выхода введите 1");
       boolean dialogTrue=true;
       String close="1";
@@ -71,22 +68,19 @@ public class Messenger {
               }
           }
       }
-        System.out.println("Какое сообщение в диалоге хотите отредактировать?");
+        System.out.println("Какое сообщение в диалоге хотите отредактировать(индекс элемента массива)?");
       dialogs.editMessage(dialogs.getMessages()[Integer.parseInt(new Scanner(System.in).nextLine())]);
 
-
-
-        System.out.println("Какое сообщение хотите удалить?");
+        System.out.println("Какое сообщение хотите удалить(индекс элемента массива)?");
         dialogs.deleteMessage(dialogs.getMessages(),new Scanner(System.in).nextInt());
 
 
         for(Message mes:dialogs.getDelayMessages()){
-            System.out.println("отложенное сообщенгие");
+            System.out.println("отложенное сообщение");
             System.out.println(mes);
         }
         dialogs.history(new ConsoleSaver(System.out));
         dialogs.history(new FileSaver(null));
-
 
         dialogs.userHistory(user1);
     }
