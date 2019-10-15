@@ -38,9 +38,15 @@ public class Messenger {
 
     public static void main(String[] args) {
 
-        User user1 = getValidUser();
+        User user1 = (getValidUser());
         User user2 = getValidUser();
         Dialogs dialogs = new Dialogs();
+        dialogs.addUser(user1);
+        dialogs.addUser(user2);
+
+
+    //    Message messageOne=new Message("Отложенное сообщение",user1,new Date());
+      //  dialogs.addDelayMessages(messageOne);
         System.out.println("Введите сообщение для начала переговоров,для выхода введите 1");
       boolean dialogTrue=true;
       String close="1";
@@ -52,6 +58,8 @@ public class Messenger {
               String inputSecondUser;
               System.out.print(user1.getLogin()+" :");
               dialogs.addMessages(new Message(inputFirstUser=scaner.nextLine(), user1, new Date()));
+              //Ввод отложенного сообщения
+              dialogs.addDelayMessages(new Message(inputFirstUser=scaner.nextLine(), user1, new Date()));
               System.out.print(user2.getLogin()+" :");
               dialogs.addMessages(new Message(inputSecondUser=scaner.nextLine(), user2, new Date()));
               if (inputFirstUser.equals(close)||inputSecondUser.equals(close)) {
@@ -65,16 +73,17 @@ public class Messenger {
       }
         System.out.println("Какое сообщение в диалоге хотите отредактировать?");
       dialogs.editMessage(dialogs.getMessages()[Integer.parseInt(new Scanner(System.in).nextLine())]);
-      
+
 
 
         System.out.println("Какое сообщение хотите удалить?");
         dialogs.deleteMessage(dialogs.getMessages(),new Scanner(System.in).nextInt());
 
-        Message messageOne=new Message("Отложенное сообщение",user1,new Date());
-        dialogs.delayMessages(messageOne);
 
-
+        for(Message mes:dialogs.getDelayMessages()){
+            System.out.println("отложенное сообщенгие");
+            System.out.println(mes);
+        }
         dialogs.history(new ConsoleSaver(System.out));
         dialogs.history(new FileSaver(null));
 
