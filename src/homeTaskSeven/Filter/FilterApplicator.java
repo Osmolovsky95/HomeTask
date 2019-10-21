@@ -5,19 +5,14 @@ import homeTaskSeven.Car.Car;
 import java.util.Collection;
 import java.util.List;
 
-public class FilterApplicator<T extends List> {
- T type;
+public class FilterApplicator<E extends Collection,T extends Searcher> {
 
-    public FilterApplicator(T type) {
-        this.type = type;
+    public  Collection filter(E collection, T type){
+       collection= (E) type.filter(collection);
+        return collection;
     }
 
-    public static Collection<Car> filter(Collection<Car> list, Searcher type){
-        Collection <Car> cars= type.filter(list);
-        return cars;
-    }
-
-   public static List<Car> sort(List <Car> collection){
+    public static List<Car> sort(List <Car> collection){
         collection.sort(Car::compareTo);
         return collection;
     }

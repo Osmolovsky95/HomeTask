@@ -14,14 +14,15 @@ public class Bmw extends Car {
     public void stop() {
 
     }
-    public int compareTo(Bmw bmw) {
-        if(this.getYearCreated()>bmw.getYearCreated()){return 1;}
-        if(this.getYearCreated()<bmw.getYearCreated()){return -1;}
-        return 0;
-    }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Car car) {
+        if(this.getYearCreated()>car.getYearCreated()){
+            return 1;
+        }
+          if(this.getYearCreated()<car.getYearCreated()){
+              return -1;
+          }
         return 0;
     }
 }

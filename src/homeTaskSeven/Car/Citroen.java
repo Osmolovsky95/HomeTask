@@ -7,26 +7,21 @@ public class Citroen extends Car {
 
     @Override
     public void start() {
-
     }
 
     @Override
     public void stop() {
-
     }
 
-    public int compareTo(Citroen citroen) {
-            if(this.getYearCreated()>citroen.getYearCreated()){
-                return 1;
-            }
-            if(this.getYearCreated()<citroen.getYearCreated()){
-                return -1;
-            }
-            return 0;
-        }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Car car) {
+        if (this.getYearCreated() > car.getYearCreated()) {
+            return 1;
+        }
+        if (this.getYearCreated() < car.getYearCreated()) {
+            return -1;
+        }
         return 0;
     }
 }

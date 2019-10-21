@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class CarFilterCapacity implements Searcher {
+public class CarFilterCapacity <E extends Collection<?extends Car>> implements Searcher {
 
     double capacity;
-
+    E element;
     public CarFilterCapacity(double capacity) {
         this.capacity = capacity;
     }
 
-    public List<Car> filter(Collection<Car> list){
+    public List<Car> filter(Collection<Car> element){
         System.out.println("Поиск авто c объемом двигателя "+capacity);
         List list1=new ArrayList();
-        for (Car car:list) {
+        for (Car car:element) {
             if(car.getCapacity()==this.capacity){
                 list1.add(car);
             }

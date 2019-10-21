@@ -1,6 +1,6 @@
 package homeTaskSeven.Car;
 
-public abstract class Car implements ICar,Comparable {
+public abstract class Car implements ICar,Comparable<Car> {
     @Override
     public String toString() {
         return "Car"
@@ -18,24 +18,8 @@ public abstract class Car implements ICar,Comparable {
         return yearCreated;
     }
 
-    public void setYearCreated(int yearCreated) {
-        this.yearCreated = yearCreated;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public double getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(double capacity) {
-        this.capacity = capacity;
     }
 
     public Car(int yearCreated, String model, double capacity) {
@@ -43,16 +27,5 @@ public abstract class Car implements ICar,Comparable {
         this.model = model;
         this.capacity = capacity;
     }
-
-    public int compareTo(Car car) {
-        if(this.getYearCreated()>car.getYearCreated()){return 1;}
-        if(this.getYearCreated()<car.getYearCreated()){return -1;}
-        return 0;
-    }
-
-
-
-
-
 
 }

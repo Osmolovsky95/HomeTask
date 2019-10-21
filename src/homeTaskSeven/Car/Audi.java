@@ -15,14 +15,14 @@ public class Audi extends Car {
 
     }
 
-    public int compareTo(Audi audi) {
-        if(this.getYearCreated()>audi.getYearCreated()){return 1;}
-        if(this.getYearCreated()<audi.getYearCreated()){return -1;}
-        return 0;
-    }
-
-    @Override
-    public int compareTo(Object o) {
+       @Override
+    public int compareTo(Car car) {
+        if(this.getYearCreated()>car.getYearCreated()){
+            return 1;
+        }
+        if(this.getYearCreated()<car.getYearCreated()){
+            return -1;
+        }
         return 0;
     }
 }

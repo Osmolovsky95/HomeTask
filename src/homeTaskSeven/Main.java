@@ -31,10 +31,11 @@ public class Main {
         CarFilterYear carFilterYear=new CarFilterYear(2007);
         CarFilterCapacity carFilterCapacity=new CarFilterCapacity(1.2);
         //filter
-       System.out.println( FilterApplicator.filter(carList,carFilterYear));
-       System.out.println( FilterApplicator.filter(carList,carFilterCapacity));
+        FilterApplicator filterApplicator=new FilterApplicator();
+       System.out.println( filterApplicator.filter(carList,carFilterYear));
+       System.out.println( filterApplicator.filter(carList,carFilterCapacity));
        FilterApplicator.sort(carList);
-       System.out.println(carList);
+
 
 
     }
