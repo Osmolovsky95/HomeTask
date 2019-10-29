@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws SecondException, FirstException {
-       // taskOneOne(6,0);
-       // taskOneTwo(6,0);
-       // taskOneThree(6,0);
+        taskOneOne(6,0);
+        taskOneTwo(6,0);
+        taskOneThree(6,0);
         taskThree();
 
         House houseOne=new House();
