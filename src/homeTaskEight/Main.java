@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws SecondException, FirstException {
-        taskOneOne(6,0);
-        taskOneTwo(6,0);
-        taskOneThree(6,0);
+       // taskOneOne(6,0);
+       // taskOneTwo(6,0);
+       // taskOneThree(6,0);
         taskThree();
 
         House houseOne=new House();
@@ -70,26 +70,31 @@ public class Main {
        int [] array=new int[5];
         int error=0;
         ArrayList<Integer> arrayList=new ArrayList();
-        for (int i=0;i<array.length;i++){
-            if (error<3) {
+        if (error <=2){
+        for (int i=0;i<array.length;i++) {
                 try {
                     array[i] = Integer.parseInt(new Scanner(System.in).nextLine());
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid input");
-                    error++;
-                    array[i] = Integer.parseInt(new Scanner(System.in).nextLine());
+                    if(error<3) {
+                        System.out.println("Invalid input");
+                        error++;
+                        i--;
+                    }
+                    else {
+                        System.out.println("Больше 3 ошибок");
+                        break;
+                    }
                 }
             }
-            else {
-                System.out.println("Вы допустили больше 3 ошибки");
-            }
         }
+        else System.out.println("Больше 3");
+
         for (int i=0;i<array.length;i++){
         arrayList.add(i,array[i]);
          }
         Collections.sort(arrayList);
         System.out.println(arrayList.toString());
-
     }
 }
+
 
