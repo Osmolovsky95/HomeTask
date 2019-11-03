@@ -58,7 +58,7 @@ int countPerson=0;
       }
 
       //ReadFile
-      TopStudentsReader.topStudentsReader(topStudentsFile.getAbsolutePath(),countPerson);
+      TopStudentsReader.topStudentsReader(topStudentsFile.getAbsolutePath(),countPerson,34);
 
     }
     }
