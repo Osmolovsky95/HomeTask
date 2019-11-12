@@ -116,6 +116,7 @@ public class Bank implements IBank{
                         accountTo.deposit(sum);
                         System.out.println("Зачисление суммы "+ sum);
                         operationCount.incrementAndGet();
+                        System.out.println("Количество операций банка равняется "+operationCount);
                     }
                 }
             }
@@ -139,6 +140,7 @@ public class Bank implements IBank{
                         accountTo.deposit(sum);
                         System.out.println("Зачисление суммы "+ sum);
                         operationCount.incrementAndGet();
+                        System.out.println("Количество операций банка равняется "+operationCount);
                     }
 
                 }

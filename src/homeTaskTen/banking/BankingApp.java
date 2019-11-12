@@ -1,6 +1,8 @@
 package homeTaskTen.banking;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -30,18 +32,18 @@ public class BankingApp {
         Account account4 = accountsPerson2.get(1);
 
 
-      //  Thread t1 = new Thread(new TransferTread(account1, account2, bank));
-       // Thread t2 = new Thread(new TransferTread(account1, account2, bank));
-      //  Thread t3 = new Thread(new TransferTread(account1, account2, bank));
-      //  Thread t4 = new Thread(new TransferTread(account1, account2, bank));
+        Thread t1 = new Thread(new TransferTread(account1, account2, bank));
+        Thread t2 = new Thread(new TransferTread(account1, account2, bank));
+        Thread t3 = new Thread(new TransferTread(account1, account2, bank));
+        Thread t4 = new Thread(new TransferTread(account1, account2, bank));
 
-       // t1.start();
-       // t2.start();
-       // t3.start();
-       // t4.start();
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
         System.out.println(bank);
         bank.delClient(person1);
-        //bank.transfer(accounts.get(0).getId(), accounts.get(1).getId(), 54);
+        bank.transfer(accounts.get(0).getId(), accounts.get(1).getId(), new BigDecimal(54));
 
 
         bank.transfer(account2.getId(), account1.getId(), new BigDecimal(5000));
@@ -60,7 +62,7 @@ public class BankingApp {
         System.out.println("Баланс аккаунта 3 = " + account1.getBalance());
         System.out.println("Баланс аккаунта 1 = " + account3.getBalance());
         System.out.println("Денег в банке " + bank.getComissionAmount());
-    /*  while (true){
+        while (true) {
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
@@ -73,29 +75,30 @@ public class BankingApp {
         }
     }
 
-        private static class TransferTread implements Runnable {
-            private final Account account1;
-            private final Account account2;
-            private final Bank bank;
-            private Random rnd = new Random();
+    private static class TransferTread implements Runnable {
+        private final Account account1;
+        private final Account account2;
+        private final Bank bank;
+        private Random rnd = new Random();
 
-            private TransferTread(Account account1, Account account2, Bank bank) {
-                this.account1 = account1;
-                this.account2 = account2;
-                this.bank = bank;
+        private TransferTread(Account account1, Account account2, Bank bank) {
+            this.account1 = account1;
+            this.account2 = account2;
+            this.bank = bank;
+        }
+
+        @Override
+        public void run() {
+            while (!Thread.currentThread().isInterrupted()) {
+                Account acc1 = rnd.nextBoolean() ? account1 : account2;
+                Account acc2 = acc1.equals(account1) ? account2 : account1;
+
+                bank.transfer(acc1.getId(), acc2.getId(), new BigDecimal(rnd.nextDouble()).round(new MathContext(2, RoundingMode.DOWN)));
             }
-
-            @Override
-            public void run() {
-                while (!Thread.currentThread().isInterrupted()) {
-                    Account acc1 = rnd.nextBoolean() ? account1 : account2;
-                    Account acc2 = acc1.equals(account1) ? account2 : account1;
-
-                    bank.transfer(acc1.getId(), acc2.getId(), new BigDecimal(rnd.nextDouble()));
-                }
-            }
-        }*/
+        }
     }
 }
+
+
 
 
