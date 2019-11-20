@@ -1,5 +1,6 @@
 package homeTaskSix;
 
+import homeTaskSix.Tests.TestValidation;
 import homeTaskSix.messenger.*;
 
 import java.util.Date;
@@ -81,7 +82,7 @@ public class Messenger {
         }
         dialogs.history(new ConsoleSaver(System.out));
         dialogs.history(new FileSaver(null));
-
+        TestValidation testValidation=new TestValidation();
         dialogs.userHistory(user1);
     }
 }
