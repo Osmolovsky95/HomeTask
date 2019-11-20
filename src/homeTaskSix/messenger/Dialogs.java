@@ -1,10 +1,12 @@
 package homeTaskSix.messenger;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Dialogs {
+public class Dialogs implements Serializable {
     private Message[] messages = new Message[0];
     private User[]users=new User[0];
     private Message[] delayMessages=new Message[0];
@@ -98,7 +100,7 @@ public class Dialogs {
         this.messages=copyMessage;
     }
 
-    public void history(IHistorySaver saver){
+    public void history(IHistorySaver saver) throws IOException {
         Message[] messages = Arrays.copyOf(this.messages, this.messages.length + this.delayMessages.length);
         System.arraycopy(this.delayMessages, 0, messages, this.messages.length, this.delayMessages.length);
         this.messages=messages;

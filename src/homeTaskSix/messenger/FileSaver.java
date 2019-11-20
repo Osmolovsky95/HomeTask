@@ -1,9 +1,9 @@
 package homeTaskSix.messenger;
 
-import java.io.File;
+import java.io.*;
 
 
-public class FileSaver implements IHistorySaver {
+public class FileSaver  {
 
     private final File stream;
 
@@ -11,8 +11,12 @@ public class FileSaver implements IHistorySaver {
         this.stream = stream;
     }
 
-    @Override
-    public void println(String s) {
-        //....
+
+    public void saveToFile(Dialogs dialogs) throws IOException {
+        FileOutputStream fileOutputStream=new FileOutputStream(stream);
+        ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(dialogs);
     }
+
 }
+
