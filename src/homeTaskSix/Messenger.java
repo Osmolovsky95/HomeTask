@@ -38,7 +38,7 @@ public class Messenger {
         return user;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         User user1 = (getValidUser());
         User user2 = getValidUser();
@@ -82,13 +82,14 @@ public class Messenger {
             System.out.println(mes);
         }
         dialogs.history(new ConsoleSaver(System.out));
-        dialogs.history((IHistorySaver) new FileSaver(null));
         dialogs.userHistory(user1);
 
         File dialogsHistory=new File("dialogsHistory");
         FileSaver fileSaver=new FileSaver(dialogsHistory);
         fileSaver.saveToFile(dialogs);
 
+       ReadHistory readHistory=new ReadHistory();
+       readHistory.readHistoryFromFile(dialogsHistory);
 
 
 

@@ -16,6 +16,8 @@ public class FileSaver  {
         FileOutputStream fileOutputStream=new FileOutputStream(stream);
         ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(dialogs);
+        objectOutputStream.close();
+        fileOutputStream.close();
     }
 
 }
