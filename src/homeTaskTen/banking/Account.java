@@ -1,15 +1,17 @@
 package homeTaskTen.banking;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Account {
+public class Account implements Serializable {
     private final String id;
     private BigDecimal balance=new BigDecimal(0);
-    private Currency currency;
+    private Currency currency=Currency.BLR;
 
 
     public Account(String id, Currency currency) {
         this.id = id;
+        this.currency=currency;
 
     }
 

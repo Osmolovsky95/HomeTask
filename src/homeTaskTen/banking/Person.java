@@ -1,10 +1,11 @@
 package homeTaskTen.banking;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Serializable {
     private final String id;
     private String name;
     private List<Account> accounts = new ArrayList<>();
@@ -49,5 +50,15 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        int moneyFromPersons=0;
+            for(Account account:accounts){
+                moneyFromPersons+=account.getBalance().intValue();
+            }
+
+        return this.getName()+"has " +moneyFromPersons+" money";
     }
 }

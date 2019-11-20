@@ -1,14 +1,16 @@
 package homeTaskTen.banking;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Bank implements IBank{
+public class Bank implements IBank, Serializable {
     private final String name;
     private Map<Person, List<Account>> data = new HashMap<>();
     private  BigDecimal comissionAmount=new BigDecimal(0);
     private AtomicInteger operationCount=new AtomicInteger(0);
+
 
     public AtomicInteger getOperationCount() {
         return operationCount;
